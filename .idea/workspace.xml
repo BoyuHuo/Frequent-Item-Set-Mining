@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2eca67f0-623b-4d5b-ac6c-4e9d6cc8fed0" name="Default Changelist" comment="add recursive Tree builder">
+    <list default="true" id="2eca67f0-623b-4d5b-ac6c-4e9d6cc8fed0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FPTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FPTree.java" afterDir="false" />
     </list>
@@ -38,8 +38,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/FPTree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3175">
-              <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+            <state relative-caret-position="530">
+              <caret line="76" column="59" selection-start-line="76" selection-start-column="59" selection-end-line="76" selection-end-column="59" />
               <folding>
                 <element signature="e#450#467#0" expanded="true" />
                 <element signature="e#891#897#0" expanded="true" />
@@ -52,6 +52,8 @@
                 <element signature="e#6257#6285#0" expanded="true" />
                 <element signature="e#7524#7552#0" expanded="true" />
                 <element signature="e#8105#8119#0" expanded="true" />
+                <element signature="e#8502#8508#0" expanded="true" />
+                <element signature="e#8649#8660#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -160,7 +162,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573442656572" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573442747398" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -243,11 +245,18 @@
       <option name="project" value="LOCAL" />
       <updated>1573442318563</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add Header calculate and order line calculate">
+      <created>1573442685317</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1573442685317</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3186000" />
+    <option name="totallyTimeSpent" value="3336000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -294,7 +303,8 @@
     <MESSAGE value="init Main class, FPTree" />
     <MESSAGE value="add fileReader" />
     <MESSAGE value="add recursive Tree builder" />
-    <option name="LAST_COMMIT_MESSAGE" value="add recursive Tree builder" />
+    <MESSAGE value="add Header calculate and order line calculate" />
+    <option name="LAST_COMMIT_MESSAGE" value="add Header calculate and order line calculate" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Node.java">
@@ -348,8 +358,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FPTree.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3175">
-          <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+        <state relative-caret-position="530">
+          <caret line="76" column="59" selection-start-line="76" selection-start-column="59" selection-end-line="76" selection-end-column="59" />
           <folding>
             <element signature="e#450#467#0" expanded="true" />
             <element signature="e#891#897#0" expanded="true" />
@@ -362,6 +372,8 @@
             <element signature="e#6257#6285#0" expanded="true" />
             <element signature="e#7524#7552#0" expanded="true" />
             <element signature="e#8105#8119#0" expanded="true" />
+            <element signature="e#8502#8508#0" expanded="true" />
+            <element signature="e#8649#8660#0" expanded="true" />
           </folding>
         </state>
       </provider>

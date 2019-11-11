@@ -23,7 +23,7 @@ public class FPTree {
             }
             conditionFres = getCombinationPattern(paths, idName);
             Node tempNode = new Node(idName, -1L);
-            conditionFres = addLeafToFrequent(tempNode, conditionFres);
+            conditionFres = addLeafToFrequentSet(tempNode, conditionFres);
 
         } else {
             for (int i = keysArray.length - 1; i >= 0; i--) {
@@ -63,7 +63,7 @@ public class FPTree {
                     Map<Set<Node>, Long> preFres = fpGrowth(holder.root, holder.header, key);
                     if (idName != null) {
                         Node tempNode = new Node(idName, leafCount);
-                        preFres = addLeafToFrequent(tempNode, preFres);
+                        preFres = addLeafToFrequentSet(tempNode, preFres);
                     }
                     conditionFres.putAll(preFres);
                 }
@@ -204,9 +204,22 @@ public class FPTree {
         return header;
     }
 
-    private static Map<Set<Node>, Long> addLeafToFrequent(Node leaf, Map<Set<Node>, Long> conditionFres) {
-
-        return null;
+    private static Map<Set<Node>, Long> addLeafToFrequentSet(Node leaf, Map<Set<Node>, Long> conditionFres) {
+        if (conditionFres.size() == 0) {
+            Set<Node> set = new HashSet<Node>();
+            set.add(leaf);
+            conditionFres.put(set, leaf.count);
+        } else {
+            Set<Set<Node>> keys = new HashSet<Set<Node>>(
+                    conditionFres.keySet());
+            for (Set<Node> set : keys) {
+                Long count = conditionFres.get(set);
+                conditionFres.remove(set);
+                set.add(leaf);
+                conditionFres.put(set, count);
+            }
+        }
+        return conditionFres;
     }
 
 
