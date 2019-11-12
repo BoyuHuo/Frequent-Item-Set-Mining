@@ -4,7 +4,6 @@ public class FPTree {
     public static long minSupport = 0;
     public static long basketNum = 0;
     public static Map<Set<Node>, Long> frequentSet = new HashMap<Set<Node>, Long>();
-    public static  Set<Node> currentFre;
 
 
 /*    public static Map<Set<Node>, Long> fpGrowth2(Node root, Map<String, Node> header, String idName) {
@@ -79,12 +78,22 @@ public class FPTree {
     }*/
 
 
-    public static void fpGrowth(Node root, Map<String, Node> header) {
+    public static void fpGrowth(Node root, Map<String, Node> header, Set<Node> currentFre) {
         Set<String> keys = header.keySet();
         String[] keysArray = keys.toArray(new String[0]);
 
+        if(root.children.isEmpty() ){
+            return;
+        }
+
         //Start
         for (int i = keysArray.length - 1; i >= 0; i--) {
+            if (currentFre == null) {
+                currentFre = new HashSet<>();
+            }
+            Set<Node> baseFre = deepCopySet(currentFre);
+
+
             //create sub tree for the leaf node
             String key = keysArray[i];
             List<Node> leafs = new ArrayList<Node>();
@@ -97,7 +106,8 @@ public class FPTree {
 
             Long leafCount = 0L;
             boolean cleanCurFreFlag= false;
-            //Node noParentNode = null;
+            List<Node> noParentNodes = new ArrayList<>();
+
             for (Node leaf : leafs) {
                 List<String> path = new ArrayList<String>();
                 Node node = leaf;
@@ -108,27 +118,37 @@ public class FPTree {
                 leafCount += leaf.count;
                 paths.put(path, leaf.count);
 
-                if (path.size() <= 0){
-                    cleanCurFreFlag = true;
+                if(path.size()<=0){
+                    noParentNodes.add(leaf);
                 }
+
+
             }
 
             if (leafCount >= minSupport) {
-                if (currentFre == null) {
-                    currentFre = new HashSet<>();
-                }
-                addToFrequent(header.get(key).idName,leafCount);
-                if(cleanCurFreFlag){
-                    currentFre = new HashSet<>();
-                }
+
+                addToFrequent(header.get(key).idName,leafCount,baseFre);
+
             }
 
 
+/*
+            if (noParentNodes.size()>0 ) {
+                for(Node noParentNode:noParentNodes){
+                    addToFrequent(noParentNode.idName, leafCount,baseFre);
+                }
+            }
+*/
+
+
+/*            for(Node n:baseFre){
+                System.out.print(n.idName+", ");
+            }
+            System.out.println();*/
 
             State holder = getConditionFpTree(paths);
             if (holder.header.size() != 0) {
-
-                 fpGrowth(holder.root, holder.header);
+                 fpGrowth(holder.root, holder.header ,baseFre);
             }
         }
 
@@ -136,11 +156,16 @@ public class FPTree {
 
     }
 
-    public static void addToFrequent(String idName, Long leafCount ){
+    public static void addToFrequent(String idName, Long leafCount, Set<Node> currentFre ){
         //adding new records into frequent set
             currentFre.add(new Node(idName, leafCount));
-
-            frequentSet.put(deepCopySet(currentFre), leafCount);
+            Long min=Long.MAX_VALUE;
+            for(Node n:currentFre){
+                if(n.count<min){
+                    min = n.count;
+                }
+            }
+            frequentSet.put(deepCopySet(currentFre), min);
     }
 
     public static Set<Node> deepCopySet(Set<Node> node) {
@@ -151,12 +176,6 @@ public class FPTree {
         return result;
     }
 
-    public static boolean isSinglePath(Map<String, Node> header,
-                                       String tableLink) {
-        if (header.size() == 1 && header.get(tableLink).next == null)
-            return true;
-        return false;
-    }
 
     public static State getConditionFpTree(Map<List<String>, Long> paths) {
         List<String[]> matrix = new ArrayList<String[]>();
@@ -171,26 +190,6 @@ public class FPTree {
         return new State(cRoot, cHeader);
     }
 
-    public static Map<Set<Node>, Long> getCombinationPattern(
-            List<Node> paths, String idName) {
-        Map<Set<Node>, Long> conditionFres = new HashMap<Set<Node>, Long>();
-        int size = paths.size();
-        for (int mask = 1; mask < (1 << size); mask++) {
-            Set<Node> set = new HashSet<Node>();
-            for (int i = 0; i < paths.size(); i++) {
-                if ((mask & (1 << i)) > 0) {
-                    set.add(paths.get(i));
-                }
-            }
-            long minValue = Long.MAX_VALUE;
-            for (Node node : set) {
-                if (node.count < minValue)
-                    minValue = node.count;
-            }
-            conditionFres.put(set, minValue);
-        }
-        return conditionFres;
-    }
 
     public static Node getFpTree(List<String[]> matrix,
                                  Map<String, Node> header, Map<String, Integer> frequentMap) {
