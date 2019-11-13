@@ -1,9 +1,13 @@
+package team9;
+
+import java.io.IOException;
 import java.util.*;
 
 public class FPTree {
     public static long minSupport = 0;
     public static long basketNum = 0;
     public static Map<Set<Node>, Long> frequentSet = new HashMap<Set<Node>, Long>();
+    public static FileWriter frequentOut;
 
 
 /*    public static Map<Set<Node>, Long> fpGrowth2(Node root, Map<String, Node> header, String idName) {
@@ -78,7 +82,7 @@ public class FPTree {
     }*/
 
 
-    public static void fpGrowth(Node root, Map<String, Node> header, Set<Node> currentFre) {
+    public static void fpGrowth(Node root, Map<String, Node> header, Set<Node> currentFre) throws IOException {
         Set<String> keys = header.keySet();
         String[] keysArray = keys.toArray(new String[0]);
 
@@ -156,7 +160,7 @@ public class FPTree {
 
     }
 
-    public static void addToFrequent(String idName, Long leafCount, Set<Node> currentFre ){
+    public static void addToFrequent(String idName, Long leafCount, Set<Node> currentFre ) throws IOException {
         //adding new records into frequent set
             currentFre.add(new Node(idName, leafCount));
             Long min=Long.MAX_VALUE;
@@ -165,7 +169,8 @@ public class FPTree {
                     min = n.count;
                 }
             }
-            frequentSet.put(deepCopySet(currentFre), min);
+            //frequentSet.put(deepCopySet(currentFre), min);
+            frequentOut.add(min,deepCopySet(currentFre));
     }
 
     public static Set<Node> deepCopySet(Set<Node> node) {
