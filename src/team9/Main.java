@@ -19,6 +19,8 @@ public class Main {
         Map<String, Integer> frequentMap = new LinkedHashMap<String, Integer>();
         Map<String, Node> header = FPTree.getHeader(matrix, frequentMap);
         Node root = FPTree.getFpTree(matrix, header, frequentMap);
+
+
         FPTree.fpGrowth(root, header, null);
       /*  for (Map.Entry<Set<Node>, Long> fre : FPTree.frequentSet.entrySet()) {
             for (Node node : fre.getKey())

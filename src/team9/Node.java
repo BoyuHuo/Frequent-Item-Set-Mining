@@ -59,9 +59,10 @@ public class Node {
     }
 
     public int hasChild(String idName) {
-        for (int i = 0; i < children.size(); i++)
+        for (int i = 0; i < children.size(); i++){
             if (children.get(i).idName.equals(idName))
                 return i;
+        }
         return -1;
     }
 

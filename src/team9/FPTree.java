@@ -12,9 +12,12 @@ public class FPTree {
     public static void printTreeBranch(Map<String, Node> header, String id, String has) {
         System.out.println("Scanning...");
         Node n = header.get(id);
+        int count = 0;
         while (n.next != null) {
             n = n.next;
+            count++;
             if (n.hasChild(has) != -1) {
+                System.out.println("No."+count);
                 System.out.println("Yes:" + n.hasChild(has));
                 Node p = n;
                 while (p.children.size()>0){
@@ -48,6 +51,7 @@ public class FPTree {
 
             //create sub tree for the leaf node
             String key = keysArray[i];
+
 
             List<Node> leafs = new ArrayList<Node>();
             Node link = header.get(key);
@@ -140,11 +144,12 @@ public class FPTree {
     public static Node getFpTree(List<String[]> matrix,
                                  Map<String, Node> header, Map<String, Integer> frequentMap) {
         Node root = new Node();
-        int count = 0;
         for (String[] line : matrix) {
             String[] orderLine = getOrderLine(line, frequentMap);
             Node parent = root;
+
             for (String idName : orderLine) {
+
                 int index = parent.hasChild(idName);
                 if (index != -1) {
                     parent = parent.getChilde(index);
@@ -182,6 +187,10 @@ public class FPTree {
             @Override
             public int compare(Map.Entry<String, Integer> v1,
                                Map.Entry<String, Integer> v2) {
+                            if(v1.getValue() == v2.getValue()){
+                                return Integer.parseInt(v2.getKey()) - Integer.parseInt(v1.getKey());
+                            }
+
                 return v2.getValue() - v1.getValue();
             }
         });
@@ -224,6 +233,11 @@ public class FPTree {
             header.put(entry.getKey(), null);
             frequentMap.put(entry.getKey(), entry.getValue());
         }
+
+
+
+
+
         return header;
     }
 
