@@ -1,6 +1,5 @@
 package team9.aprio;
 
-import team9.FileReader;
 import team9.FileWriter;
 
 import java.io.IOException;
@@ -177,23 +176,7 @@ public class Apriori {
 		System.out.println();	
 	}
 
-	public boolean PrintFrequent() {
-		if(this.FreItemSets.isEmpty()) {
-			System.out.print("No frequent items");
-			System.out.println();
-			return false;
-		}
-		for(int i = 0; i < this.FreItemSets.size(); i++) {
-			System.out.print("frequent items: ");
-			Vector<Integer> buf = this.FreItemSets.elementAt(i);
-			for(int j = 0; j < buf.size(); j++) {
-				System.out.print(buf.elementAt(j)+" ");
-			}
-			System.out.println();
-		}
-		System.out.print("Frequent num:"+this.FreItemSets.size());
-		return true;
-	}
+
 
 	public void output() throws IOException {
 

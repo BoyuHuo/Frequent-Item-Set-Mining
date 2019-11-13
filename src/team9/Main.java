@@ -30,7 +30,7 @@ public class Main {
         System.out.println("Frequent-set size: " + FPTree.frequentOut.toatlTuples);
         System.out.println("Total time: " + TimeUnit.NANOSECONDS.toMillis(duration) + " ms");
 
-        //FPTree.printTreeBranch(header,root,"1","39");
+        //FPTree.printTreeBranch(header,"39","1");
 
     }
 

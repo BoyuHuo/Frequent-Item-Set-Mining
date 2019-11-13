@@ -24,7 +24,9 @@ public class FileReader {
             FPTree.minSupport = Integer.parseInt(tempStr[1]);
             //get basket data
             while ((line = reader.readLine()) != null) {
-                data.add(line.replace("{", "").replace("}", "").split(regex));
+                String[] temps =line.replace("{", "").replace("}", "").split(regex);
+                data.add(temps);
+
             }
             reader.close();
         } catch (Exception e) {

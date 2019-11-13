@@ -9,15 +9,21 @@ public class FPTree {
     public static Map<Set<Node>, Long> frequentSet = new HashMap<Set<Node>, Long>();
     public static FileWriter frequentOut;
 
-    public static void printTreeBranch(Map<String, Node> header, Node root, String id, String has) {
+    public static void printTreeBranch(Map<String, Node> header, String id, String has) {
         System.out.println("Scanning...");
         Node n = header.get(id);
         while (n.next != null) {
             n = n.next;
             if (n.hasChild(has) != -1) {
                 System.out.println("Yes:" + n.hasChild(has));
+                Node p = n;
+                while (p.children.size()>0){
+                    System.out.print(p.children.get(0).idName+" -> ");
+                    p=p.children.get(0);
+                }
             }
         }
+
 
         System.out.println("Done!");
 
@@ -42,6 +48,7 @@ public class FPTree {
 
             //create sub tree for the leaf node
             String key = keysArray[i];
+
             List<Node> leafs = new ArrayList<Node>();
             Node link = header.get(key);
 
