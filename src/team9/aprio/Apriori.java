@@ -16,6 +16,8 @@ public class Apriori {
 	private Vector<Vector<Integer>> FreItemSets;
 	private static int MinSup;
 
+	static FileWriter fileReader;
+
 	public Apriori(Vector<Vector<Integer>> DataSetInput) {
 		this.DataSet = DataSetInput;
 		this.FreItemSets = new Vector<Vector<Integer>>();
@@ -151,9 +153,6 @@ public class Apriori {
 	}
 	
 	private void addFrequentItem(Vector<Vector<Integer>> items) {
-		if(items.size()<2){
-			return;
-		}
 		for(int i = 0; i < items.size(); i++) {
 			this.FreItemSets.addElement(items.get(i));
 		}
@@ -196,8 +195,8 @@ public class Apriori {
 		return true;
 	}
 
-	public void output(String path) throws IOException {
-		FileWriter fileReader = new FileWriter(path);
+	public void output() throws IOException {
+
 		for(Vector<Integer> sets : this.FreItemSets){
 			Set<Integer> tempSet = new HashSet<Integer>();
 			tempSet.addAll(sets);
@@ -232,7 +231,11 @@ public class Apriori {
 		System.out.println("memory difference:" + (endMem-startMem));
 		test.PrintState();
 		//test.PrintFrequent();
-		test.output("d:/apriorOutput.txt");
+
+		fileReader = new FileWriter("d:/apriorOutput.txt");
+		test.output();
+		fileReader.close();
+
 	}
 
 }
