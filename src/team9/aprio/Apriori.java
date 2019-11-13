@@ -152,7 +152,11 @@ public class Apriori {
 	}
 	
 	private void addFrequentItem(Vector<Vector<Integer>> items) {
+
 		for(int i = 0; i < items.size(); i++) {
+			if(items.get(i).size()<=1){
+				continue;
+			}
 			this.FreItemSets.addElement(items.get(i));
 		}
 	}

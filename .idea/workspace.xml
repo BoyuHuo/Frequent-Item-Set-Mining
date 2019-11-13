@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2eca67f0-623b-4d5b-ac6c-4e9d6cc8fed0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/team9/FPTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/team9/FPTree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/team9/FileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/team9/FileReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/team9/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/team9/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/team9/aprio/Apriori.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/team9/aprio/Apriori.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -95,8 +92,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/team9/aprio/Apriori.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
+            <state relative-caret-position="265">
+              <caret line="157" column="25" selection-start-line="157" selection-start-column="25" selection-end-line="157" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -203,7 +200,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573674998180" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573675400736" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Project 2/Project 2/Comp6521-P2-master/Comp6521-P2-master" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -285,7 +282,7 @@
       <workItem from="1573527275117" duration="12575000" />
       <workItem from="1573581496086" duration="7135000" />
       <workItem from="1573593545155" duration="13314000" />
-      <workItem from="1573657608297" duration="16263000" />
+      <workItem from="1573657608297" duration="16665000" />
     </task>
     <task id="LOCAL-00001" summary="add node structure">
       <created>1573439234836</created>
@@ -364,17 +361,24 @@
       <option name="project" value="LOCAL" />
       <updated>1573670534801</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="bug fixed">
+      <created>1573675047072</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1573675047072</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63861000" />
+    <option name="totallyTimeSpent" value="64263000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16364606" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29584223" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -421,7 +425,8 @@
     <MESSAGE value="cutting tree bug fixed" />
     <MESSAGE value="add file writer, and second algorithm apriori" />
     <MESSAGE value="remove all one item basket" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove all one item basket" />
+    <MESSAGE value="bug fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug fixed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -549,10 +554,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/fpoutput.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/team9/aprio/Apriori.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        <state relative-caret-position="265">
+          <caret line="157" column="25" selection-start-line="157" selection-start-column="25" selection-end-line="157" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
